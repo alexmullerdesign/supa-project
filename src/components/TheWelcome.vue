@@ -8,6 +8,7 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
+  <button @click="goTimeline">Replay</button>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
@@ -84,3 +85,27 @@ import SupportIcon from './icons/IconSupport.vue'
     <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
   </WelcomeItem>
 </template>
+
+<script>
+import { gsap } from "gsap";
+
+export default {
+  mounted() {
+    this.tl = gsap.timeline();
+    this.tl.from(".item", {
+      duration: 0.75,
+      stagger: 0.25,
+      ease: "power",
+      // x: () => Math.random() * 400 - 200,
+      x: "random(-200, 200)",
+      opacity: 0,
+    });
+  },
+  methods: {
+    goTimeline() {
+      console.log("push it");
+      this.tl.restart();
+    },
+  },
+};
+</script>

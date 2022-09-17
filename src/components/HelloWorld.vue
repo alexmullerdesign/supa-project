@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="text-yellow-400">{{ msg }}</h1>
     <h3 class="text-2xl">
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
@@ -17,7 +17,23 @@ defineProps({
     </h3>
   </div>
 </template>
+<script>
+import { gsap } from "gsap";
 
+export default {
+  mounted() {
+    console.log("yuhoo1");
+    gsap.from(".greetings", { 
+      duration: 5,
+      rotation: 360,
+      x: 200,
+      y: -200,
+      repeat: 2,
+      yoyo: `true`,
+    });
+  },
+};
+</script>
 <style scoped>
 h1 {
   font-weight: 500;
@@ -26,7 +42,7 @@ h1 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .greetings h1,
