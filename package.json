@@ -8,6 +8,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.35.6",
     "gsap": "^3.11.1",
     "vue": "^3.2.38"
   },
